@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: " Red Hat Text", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background-image: url(images/bg-stars.svg), url(images/pattern-hills.svg);
+  background-repeat: no-repeat;
+  background-color: hsl(236, 21%, 26%);
+  background-position: center top, bottom;
+  background-size: cover, contain;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60rem;
+  gap: 8rem;
+  margin-top: 15rem; /* Adjust this margin as needed */
+}
+
+.part1 > h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.8rem;
+}
+
+.part2 {
+  width: 40vw;
+}
+.fourPieces {
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+}
+
+.piece {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.box {
+  position: relative;
+  width: 10rem; /* veya istediğiniz genişlik */
+  height: 10rem; /* veya istediğiniz yükseklik */
+  background: linear-gradient(
+    to bottom,
+    hsl(235, 16%, 14%) 50%,
+    hsl(234, 17%, 12%) 30%
+  );
+  overflow: hidden; /* Kırık efekti için içeriği gizle */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+}
+
+.box::before,
+.box::after {
+  content: "";
+  position: absolute;
+  width: 50%; /* Kutunun yarısı kadar */
+  height: 100%;
+  background: inherit; /* Ana kutu ile aynı renkleri kullan */
+  z-index: -1; /* Ana kutunun altına yerleştir */
+}
+
+.box::before {
+  left: 0;
+  transform: skewX(20deg); /* 20 derece eğim */
+  transform-origin: bottom right; /* Sağ alt köşeden başla */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Gölgelendirme */
+}
+
+.box::after {
+  right: 0;
+  transform: skewX(-20deg); /* -20 derece eğim */
+  transform-origin: bottom left; /* Sol alt köşeden başla */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Gölgelendirme */
+}
+
+.box p {
+  position: absolute;
+  top: 50%; /* P elementini dikey ortalamak için */
+  left: 50%; /* P elementini yatay ortalamak için */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* P elementini tam ortaya yerleştirmek için */
+  margin: 0;
+  color: white; /* P elementinin rengi */
+}
+
+.box > p {
+  font-size: 5rem;
+  color: hsl(345, 95%, 68%);
+}
+
+.piece > h3 {
+  font-size: 1.3rem;
+  color: hsl(237, 18%, 59%);
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+}
+
+.icons {
+  display: flex;
+  gap: 3rem;
+  margin-top: auto; /* Push icons to the bottom */
+  margin-bottom: 3rem;
+}
